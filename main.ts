@@ -13,7 +13,7 @@ input.onButtonPressed(Button.A, function () {
         # . . . #
         . # # # .
         `)
-    emojiposition = true;
+    emojiposition = true
 })
 function emoji () {
     basic.showLeds(`
@@ -26,7 +26,7 @@ function emoji () {
     emojiposition = false
 }
 input.onGesture(Gesture.Shake, function () {
-    if (emojiposition = false) {
+    if (emojiposition == false) {
         basic.showLeds(`
             # . . . #
             . # . # .
@@ -34,13 +34,7 @@ input.onGesture(Gesture.Shake, function () {
             . # . # .
             # . . . #
             `)
-        basic.showLeds(`
-            . # . # .
-            . . . . .
-            . . # . .
-            . . . . .
-            # # # # #
-            `)
+        emoji()
     } else {
         basic.showLeds(`
             # . . . #
@@ -49,16 +43,16 @@ input.onGesture(Gesture.Shake, function () {
             # . . . #
             . # # # .
             `)
-        basic.showLeds(`
-            . # . # .
-            . . . . .
-            . . # . .
-            . . . . .
-            # # # # #
-            `)
+        emoji()
     }
 })
 input.onButtonPressed(Button.AB, function () {
+    musik1()
+})
+input.onButtonPressed(Button.B, function () {
+    music.stopMelody(MelodyStopOptions.All)
+})
+function musik1 () {
     music.play(music.tonePlayable(392, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
     music.play(music.tonePlayable(523, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
     music.play(music.tonePlayable(523, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
@@ -91,7 +85,6 @@ input.onButtonPressed(Button.AB, function () {
     music.play(music.tonePlayable(587, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
     music.play(music.tonePlayable(587, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
     music.play(music.tonePlayable(494, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
-})
+}
 let emojiposition = false
-
 emoji()
